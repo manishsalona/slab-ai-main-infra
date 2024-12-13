@@ -19,6 +19,7 @@ module "vpc" {
   # Pass variables as needed 
   vpc_cidr = var.vpc_cidr_block
 }
+
 module "security_groups" {
   source = "../../modules/security-groups"
   vpc_id = module.vpc.vpc_id
@@ -29,4 +30,12 @@ module "ec2" {
   vpc_id                  = module.vpc.vpc_id
   public_subnet_id        = module.vpc.public_subnet_id
   security_group_id       = module.security_groups.slab_ai_sg_id
+}
+
+module "eks" {
+  source = "../../modules/eks"
+  vpc_id = module.vpc.vpc_id
+  private_subnet_id = module.vpc.private_subnet_id
+  security_group_id = module.security_groups.eks_sg
+
 }

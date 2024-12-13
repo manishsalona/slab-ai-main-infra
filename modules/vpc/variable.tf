@@ -19,14 +19,13 @@ variable "public_subnet_cidr" {
   
 }
 
-variable "availability_zone" {
-    description = "public_subnet_cidr"
-    type = string
-    default = "ap-south-1a"
+
+variable "availability_zones" {
+    description = "AZ"
+    default = ["ap-south-1a","ap-south-1b"]
      
 }
 variable "private_subnet_cidr" {
     description = "public_subnet_cidr"
-    type = string
-    default = "10.0.2.0/24"
+    default = ["10.0.2.0/24","10.0.3.0/24"]
 }
