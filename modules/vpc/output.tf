@@ -12,8 +12,8 @@ output "public_subnet_id" {
 
 # Output for Private Subnet ID
 output "private_subnet_id" {
-  description = "The ID of the private subnet"
-  value       = aws_subnet.private_subnet.id
+  description = "The IDs of the private subnets"
+  value       = [for subnet in aws_subnet.private_subnet : subnet.id]
 }
 
 # Output for Internet Gateway ID

@@ -18,5 +18,19 @@ output "nat_gateway_id" {
   value = module.vpc.nat_gateway_id
 }
 
+output "cluster_endpoint" {
+  value = module.eks.cluster_endpoint
+}
+
+output "cluster_name" {
+  value = module.eks.cluster_name
+}
+
+
+
+
+
+
+
 
 
